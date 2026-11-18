@@ -1,0 +1,19 @@
+--- a/core/constants.py
++++ b/core/constants.py
+@@ -246,9 +246,13 @@
+         if getattr(sys, "frozen", False):  # Running as a PyInstaller executable
+             return os.path.dirname(sys.executable)
+         else:  # Running as a regular Python script
+-            running_dir = os.path.dirname(os.path.abspath(__file__))
+-            parent_dir = os.path.dirname(running_dir)  # Go one folder up
+-            return parent_dir
++            app_dir = os.path.join(
++                os.environ.get("XDG_DATA_HOME")
++                or os.path.join(get_user_home_directory(), ".local", "share"),
++                "ClipCascade",
++            )
++            os.makedirs(app_dir, exist_ok=True)
++            return app_dir
+ 
+ 
+ def get_downloads_folder():
