@@ -122,7 +122,7 @@
           default = clipcascade-client;
           update-branches = flake-lib.lib.mkUpdateBranches {
             inherit pkgs source;
-            minimumTrackingVersion = "3.2.0";
+            minimumTrackingVersion = "3.3.0";
             pinSchema = "github-asset";
           };
           update-version = flake-lib.lib.mkUpdateVersion {
