@@ -1,5 +1,5 @@
 # Auto-managed by `nix run .#update-version`. Manual edits will be overwritten by the next bump.
 {
-  hash = "sha256-bSoBZG4pxIz5elpY0syasismAJ2ti9jt55IO4knr/ZI=";
-  version = "3.5.1";
+  hash = "sha256-eG3v6EiESueSxtIX8Me7Y5Vuf43BRqM2yHhhmNAbafQ=";
+  version = "3.3.1";
 }
