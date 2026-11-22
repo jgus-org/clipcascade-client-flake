@@ -37,10 +37,6 @@
         packages = rec {
           clipcascade-client = pkgs.stdenvNoCC.mkDerivation {
             inherit version;
-            src = pkgs.fetchurl {
-              hash = pin.hash;
-              url = "https://github.com/${source.owner}/${source.repo}/releases/download/v${version}/${source.asset}";
-            };
             # GI typelibs collected onto GI_TYPELIB_PATH: AyatanaAppIndicator3 backs the pystray tray on Plasma's StatusNotifier host.
             buildInputs = [
               pkgs.glib
@@ -118,6 +114,10 @@
                   "''${gappsWrapperArgs[@]}"
               '';
             sourceRoot = "ClipCascade";
+            src = pkgs.fetchurl {
+              hash = pin.hash;
+              url = "https://github.com/${source.owner}/${source.repo}/releases/download/v${version}/${source.asset}";
+            };
           };
           default = clipcascade-client;
           update-branches = flake-lib.lib.mkUpdateBranches {
